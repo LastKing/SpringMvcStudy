@@ -12,10 +12,17 @@ import java.io.IOException;
  */
 @Controller
 public class HelloWorld {
-    @RequestMapping("/helloworld")  //此处控制浏览器里访问路径 具体为：/SpringDemo/helloworld
+    //返回基本信息
+    @RequestMapping("/hello1")
     public void helloWorld(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         //输出字符串
         response.getWriter().append("hello world");
+    }
+
+    //通过 视图解析器  渲染成   html
+    @RequestMapping("/hello2")
+    public String helloWorld2(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        return "index";
     }
 }
